@@ -47,7 +47,9 @@
   <div class="horizontal-scroll">
     <!-- Embedded Landscaping Video -->
     <iframe width="300" height="170" src="https://www.youtube.com/embed/D_s4fjbC6a4" title="Landscaping Tutorial" class="rounded-lg"></iframe>
-    <!-- Add more videos here -->
+    <!-- Add more videos as needed -->
+    <iframe width="300" height="170" src="https://www.youtube.com/embed/example2" title="Tutorial 2" class="rounded-lg"></iframe>
+    <iframe width="300" height="170" src="https://www.youtube.com/embed/example3" title="Tutorial 3" class="rounded-lg"></iframe>
   </div>
 </section>
 
@@ -72,31 +74,6 @@
   </div>
   <div id="taskTimerDisplay" class="timer">00:00</div>
 </section>
-
-<script>
-  // TIMER LOGIC
-  const timerDisplay = document.getElementById('taskTimerDisplay');
-  let countdown;
-
-  document.querySelectorAll('.timer-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      clearInterval(countdown);
-      let time = parseInt(btn.dataset.minutes) * 60;
-      updateDisplay(time);
-      countdown = setInterval(() => {
-        time--;
-        updateDisplay(time);
-        if(time <= 0) clearInterval(countdown);
-      }, 1000);
-    });
-  });
-
-  function updateDisplay(seconds){
-    const min = String(Math.floor(seconds/60)).padStart(2,'0');
-    const sec = String(seconds%60).padStart(2,'0');
-    timerDisplay.textContent = `${min}:${sec}`;
-  }
-</script>
 
 <!-- Contact Info Section -->
 <section class="section bg-green-100 rounded-xl mt-8 p-6">
@@ -124,10 +101,33 @@
 </section>
 
 <script>
-  // Contact Form Submission (no backend; just a placeholder)
+  // TIMER LOGIC
+  const timerDisplay = document.getElementById('taskTimerDisplay');
+  let countdown;
+
+  document.querySelectorAll('.timer-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      clearInterval(countdown);
+      let time = parseInt(btn.dataset.minutes) * 60;
+      updateDisplay(time);
+      countdown = setInterval(() => {
+        time--;
+        updateDisplay(time);
+        if(time <= 0) clearInterval(countdown);
+      }, 1000);
+    });
+  });
+
+  function updateDisplay(seconds){
+    const min = String(Math.floor(seconds/60)).padStart(2,'0');
+    const sec = String(seconds%60).padStart(2,'0');
+    timerDisplay.textContent = `${min}:${sec}`;
+  }
+
+  // CONTACT FORM SUBMISSION (demo only)
   const form = document.getElementById('contactForm');
   const responseText = document.getElementById('formResponse');
-  
+
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     responseText.textContent = "Thank you! Your message has been sent (demo only).";
@@ -135,6 +135,5 @@
   });
 </script>
 
-  
 </body>
 </html>
