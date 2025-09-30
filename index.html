@@ -98,5 +98,43 @@
   }
 </script>
 
+<!-- Contact Info Section -->
+<section class="section bg-green-100 rounded-xl mt-8 p-6">
+  <h2 class="text-2xl font-bold mb-4 text-center text-green-800">Contact Mario's Landscaping</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <!-- Info Card -->
+    <div class="card">
+      <h3 class="font-bold text-xl mb-2">Get in Touch</h3>
+      <p><strong>Address:</strong> 123 Palm St, Indio, CA 92201</p>
+      <p><strong>Phone:</strong> (760) 555-1234</p>
+      <p><strong>Email:</strong> info@marioslandscaping.com</p>
+    </div>
+    <!-- Simple Contact Form -->
+    <div class="card">
+      <h3 class="font-bold text-xl mb-2">Send a Message</h3>
+      <form id="contactForm">
+        <input type="text" name="name" placeholder="Your Name" class="w-full p-2 mb-2 border border-gray-300 rounded" required>
+        <input type="email" name="email" placeholder="Your Email" class="w-full p-2 mb-2 border border-gray-300 rounded" required>
+        <textarea name="message" placeholder="Your Message" class="w-full p-2 mb-2 border border-gray-300 rounded" rows="4" required></textarea>
+        <button type="submit" class="bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-4 rounded">Send</button>
+      </form>
+      <p id="formResponse" class="mt-2 text-green-700 font-semibold"></p>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Contact Form Submission (no backend; just a placeholder)
+  const form = document.getElementById('contactForm');
+  const responseText = document.getElementById('formResponse');
+  
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    responseText.textContent = "Thank you! Your message has been sent (demo only).";
+    form.reset();
+  });
+</script>
+
+  
 </body>
 </html>
